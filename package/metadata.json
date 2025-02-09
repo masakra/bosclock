@@ -1,0 +1,24 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "masakra@masakra.su",
+                "Name": "Sergey N Chursanov"
+            }
+        ],
+        "Category": "Date and Time",
+        "Description": "A clock just working",
+        "Icon": "clock",
+        "Id": "su.masakra.plasmoid.bosclock",
+        "License": "GPL2",
+        "Name": "BosClock",
+        "Version": "1.0.0",
+        "Website": "https://github.com/masakra/bosclock"
+    },
+    "X-Plasma-API": "declarativeappletscript",
+    "X-Plasma-API-Minimum-Version": "6.0",
+    "X-Plasma-Provides": "org.kde.plasma.time,org.kde.plasma.date",
+    "X-Plasma-MainScript": "ui/main.qml",
+    "KPackageStructure": "Plasma/Applet"
+}
+
