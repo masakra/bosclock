@@ -15,10 +15,6 @@ import su.masakra.plasmoid.bosclock as BosClock
 PlasmoidItem {
   id: root
 
-  property int hour: 0
-  property int minute: 0
-  property int second: 0
-
   readonly property real mrg: 5
   readonly property real rad: Math.min(width, height) / 2 - mrg
   readonly property real cx: width / 2
@@ -26,13 +22,13 @@ PlasmoidItem {
   readonly property real ang_30: Math.PI / 6
 
   readonly property color semiGrayColor: "#60000000"
-  readonly property color semiWhiteColor: "#69ffffff"
+  readonly property color semiWhiteColor: "#60ffffff"
 
   BosClock.DateTimeSource {
-    onTimeChanged: (h, m, s) => {
-      hour = h
-      minute = m
-      second = s
+    onTimeChanged: (hour, minute, second) => {
+      hourHand.angle = hour * 30 + minute / 2
+      minuteHand.angle = minute * 6
+      secondHand.angle = second * 6
     }
   }
 
@@ -61,7 +57,6 @@ PlasmoidItem {
     height: rad * .65
     x: cx - width / 2
     y: cy - height
-    angle: hour * 30 + minute / 2
     color: semiGrayColor
     border {
       width: 1
@@ -76,7 +71,6 @@ PlasmoidItem {
     height: rad * .9
     x: cx - width / 2
     y: cy - height
-    angle: minute * 6
     color: semiGrayColor
     border {
       width: 1
@@ -91,7 +85,6 @@ PlasmoidItem {
     height: rad * .96
     x: cx - width / 2
     y: cy - height
-    angle: second * 6
     color: "#ad2929"
   }
 
